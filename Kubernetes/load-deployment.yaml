@@ -1,0 +1,101 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.7.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: load
+  name: load
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: load
+    spec:
+      containers:
+      - env:
+        - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+          valueFrom:
+            configMapKeyRef:
+              key: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+              name: load-docker-compose-env
+        - name: APPDYNAMICS_AGENT_ACCOUNT_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: APPDYNAMICS_AGENT_ACCOUNT_NAME
+              name: load-docker-compose-env
+        - name: APPDYNAMICS_AGENT_APPLICATION_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: APPDYNAMICS_AGENT_APPLICATION_NAME
+              name: load-docker-compose-env
+        - name: APPDYNAMICS_CONTROLLER_HOST_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: APPDYNAMICS_CONTROLLER_HOST_NAME
+              name: load-docker-compose-env
+        - name: APPDYNAMICS_CONTROLLER_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: APPDYNAMICS_CONTROLLER_PORT
+              name: load-docker-compose-env
+        - name: APPDYNAMICS_CONTROLLER_SSL_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              key: APPDYNAMICS_CONTROLLER_SSL_ENABLED
+              name: load-docker-compose-env
+        - name: APPD_AGENT_SHA256
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_AGENT_SHA256
+              name: load-docker-compose-env
+        - name: APPD_AGENT_VERSION
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_AGENT_VERSION
+              name: load-docker-compose-env
+        - name: APPD_DIR
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_DIR
+              name: load-docker-compose-env
+        - name: APPD_ES_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_ES_HOST
+              name: load-docker-compose-env
+        - name: APPD_ES_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_ES_PORT
+              name: load-docker-compose-env
+        - name: APPD_ES_SSL
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_ES_SSL
+              name: load-docker-compose-env
+        - name: APPD_EVENT_ACCOUNT_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: APPD_EVENT_ACCOUNT_NAME
+              name: load-docker-compose-env
+        - name: RETRY
+          valueFrom:
+            configMapKeyRef:
+              key: RETRY
+              name: load-docker-compose-env
+        - name: TIMEOUT
+          valueFrom:
+            configMapKeyRef:
+              key: TIMEOUT
+              name: load-docker-compose-env
+        image: appddemo/adcapital-load
+        name: adcapitalload
+        resources: {}
+      restartPolicy: Always
+status: {}

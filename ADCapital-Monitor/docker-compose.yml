@@ -12,7 +12,7 @@ services:
     hostname: monitor
     build:
       context: .
-    image: appdynamics/appdynamics-monitor
+    image: appddemo/appdynamics-monitor
     environment:
       APPD_DOCKER_VISIBILITY: "true"
       APPD_ANALYTICS_MONITOR: "true"

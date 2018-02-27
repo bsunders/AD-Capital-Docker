@@ -11,7 +11,7 @@ services:
     container_name: project
     build:
       context: ADCapital-Project
-    image: appdynamics/adcapital-project
+    image: appddemo/adcapital-project
     volumes:
     - project:/project
 
@@ -19,8 +19,8 @@ services:
     container_name: adcapitaldb
     hostname: adcapitaldb
     image: mysql
-    logging:
-      driver: "none"
+    # logging:
+    #   driver: "none"
     environment:
     - "MYSQL_ROOT_PASSWORD=welcome1"
     ports:
@@ -30,8 +30,8 @@ services:
     container_name: rabbitmq
     hostname: rabbitmq
     image: rabbitmq:3.5.4-management
-    logging:
-      driver: "none"
+    # logging:
+    #   driver: "none"
     environment:
     - "RABBITMQ_DEFAULT_USER=guest"
     - "RABBITMQ_DEFAULT_PASS=guest"
@@ -43,12 +43,12 @@ services:
     hostname: rest
     build:
       context: ./ADCapital-Tomcat
-    image: appdynamics/adcapital-tomcat
+    image: appddemo/adcapital-tomcat
     volumes:
     - project:/project
     - appdynamics:/appdynamics
-    logging:
-      driver: "none"
+    # logging:
+    #   driver: "none"
     env_file: ./docker-compose.env
     environment:
     - "ROLE=rest"
@@ -65,12 +65,12 @@ services:
     hostname: portal
     build:
       context: ./ADCapital-Tomcat
-    image: appdynamics/adcapital-tomcat
+    image: appddemo/adcapital-tomcat
     volumes:
     - project:/project
     - appdynamics:/appdynamics
-    logging:
-      driver: "none"
+    # logging:
+    #   driver: "none"
     env_file: ./docker-compose.env
     environment:
     - "ROLE=portal"
@@ -87,12 +87,12 @@ services:
     hostname: verification
     build:
       context: ./ADCapital-Tomcat
-    image: appdynamics/adcapital-tomcat
+    image: appddemo/adcapital-tomcat
     volumes:
     - project:/project
     - appdynamics:/appdynamics
-    logging:
-      driver: "none"
+    # logging:
+    #   driver: "none"
     env_file: ./docker-compose.env
     environment:
     - "ROLE=verification"
@@ -109,12 +109,12 @@ services:
     hostname: processor
     build:
       context: ./ADCapital-Tomcat
-    image: appdynamics/adcapital-tomcat
+    image: appddemo/adcapital-tomcat
     volumes:
     - project:/project
     - appdynamics:/appdynamics
-    logging:
-      driver: "none"
+    # logging:
+    #   driver: "none"
     env_file: ./docker-compose.env
     environment:
     - "ROLE=processor"
@@ -131,12 +131,10 @@ services:
     hostname: approval
     build:
       context: ./ADCapital-Tomcat
-    image: appdynamics/adcapital-tomcat
+    image: appddemo/adcapital-tomcat
     volumes:
     - project:/project
     - appdynamics:/appdynamics
-    logging:
-      driver: "none"
     env_file: ./docker-compose.env
     environment:
     - "ROLE=approval"
@@ -153,7 +151,7 @@ services:
     hostname: adcapitalload
     build:
       context: ./ADCapital-Load
-    image: appdynamics/adcapital-load
+    image: appddemo/adcapital-load
     env_file: ./docker-compose.env
     depends_on:
     - "portal"
