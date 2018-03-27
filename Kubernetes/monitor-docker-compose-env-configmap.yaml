@@ -15,12 +15,9 @@ data:
   APPDYNAMICS_CONTROLLER_SSL_ENABLED: "False"
   RETRY: 10s
   TIMEOUT: 300s
-  ROLE: approval
-  APPDYNAMICS_AGENT_NODE_NAME: Approval
-  APPDYNAMICS_AGENT_TIER_NAME: Approval-Services
 kind: ConfigMap
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: approval-docker-compose-env
-  name: approval-docker-compose-env
+    io.kompose.service: monitor-docker-compose-env
+  name: monitor-docker-compose-env

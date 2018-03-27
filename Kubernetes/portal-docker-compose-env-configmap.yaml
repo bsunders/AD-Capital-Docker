@@ -17,7 +17,7 @@ data:
   APPDYNAMICS_AGENT_NODE_NAME: Portal
   APPDYNAMICS_AGENT_TIER_NAME: Portal-Service
   RETRY: 10s
-  TIMEOUT: 120s
+  TIMEOUT: 300s
 kind: ConfigMap
 metadata:
   creationTimestamp: null
