@@ -8,7 +8,10 @@ See [AppDynamics/AD-Capital](https://github.com/Appdynamics/AD-Capital) for appl
 
 ## Overview
 
-The repo contains a number of docker-compose projects that can be used to run the AD-Capital demo app with AppDynamics APM and Integrated Docker Visibility support.  The demo can be run without APM enbled (useful during development); AppDynamics APM Agents are run from a docker volume, which contains both the agent binaries and log/configuration files for each node. Separate containers are used to upload agent files and to run a Standalone Machine Agent with [Integrated Docker Visibility](https://docs.appdynamics.com/display/PRO43/Integrated+Docker+Visibility).  All the component projects are built and run using standard docker-compose commands.
+The repo contains a number of docker-compose projects that can be used to run the AD-Capital demo app with AppDynamics APM, Integrated Docker Visibility support, on a single node Kubernetes Cluster.  The demo can be run without APM enbled (useful during development); AppDynamics APM Agents are run from a docker volume, which contains both the agent binaries and log/configuration files for each node. Separate containers are used to upload agent files and to run a Standalone Machine Agent with [Integrated Docker Visibility](https://docs.appdynamics.com/display/PRO43/Integrated+Docker+Visibility).  All the component projects are built and run using standard docker-compose commands.
+
+##Setting Up Kubernetes Locally via Docker (not minikube)
+Follow this tutorial [here](https://rominirani.com/tutorial-getting-started-with-kubernetes-with-docker-on-mac-7f58467203fd)
 
 ## Building the Container Images
 
