@@ -94,7 +94,9 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: TIMEOUT
-              name: env-map
+              name: env-map        
+        - name: APPD_ANALYTICS_MONITOR
+          value: "true"
         image: appddemo/appdynamics-monitor
         name: monitor
         resources: {}
